@@ -72,5 +72,116 @@ function rectangleArea(width, height) {
   
   console.log(numOfMonitors);
 
+  //Arrow functions - a shorter way to write functions by using the special “fat arrow” () => 
+  const rectangleArea = (width, height) => {
+    let area = width * height;
+    return area;
+  };
+// same as above
+  const rectangleArea = function(width, height) {
+    let area = width * height;
+    return area;
+  };
+  //So if we have 
+  const squareNum = (num) => {
+    return num * num;
+  };
+  // we can refactor to 
+  const squareNum = num => num * num;
+
+  const plantNeedsWater = (day) => {
+    return day === 'Wednesday' ? true : false;
+  };
+  //notice the code converted to the if/else to a ternery operator
+  const plantNeedsWater = day => day === 'Wednesday' ? true : false;
+
+//global scope
+const color = 'blue'
+
+const returnSkyColor = () => {
+  return color; // blue 
+};
+
+console.log(returnSkyColor()); // blue
+
+const satellite = 'The Moon';
+const galaxy  = 'The Milky Way';
+const stars  = 'North Star';
+
+const callMyNightSky = () =>{
+  return 'Night Sky: ' + satellite + ', ' + stars + ', and ' + galaxy;
+}
+
+console.log(callMyNightSky())
+
+//block scope (local)
+const logSkyColor = () => {
+  let color = 'blue'; 
+  console.log(color); // blue 
+};
+
+logSkyColor(); // blue 
+//console.log(color); // ReferenceError
+
+//If we try to log the same variable outside the function, 
+//throws a ReferenceError.
+
+const logVisibleLightWaves = () =>{
+  const lightWaves = 'Moonlight';
+  console.log(lightWaves);
+}
+logVisibleLightWaves();
+//console.log(lightWaves);  // reference error
+
+//pollution coding - following is an eg mixture of bad and good 
+
+const logSkyColor = () => {
+  const dusk = true;
+  let color = 'blue'; 
+  if (dusk) {
+    let color = 'pink';
+    console.log(color); // pink
+  }
+  console.log(color); // blue 
+};
+
+//console.log(color); // ReferenceError
+
+// .pop() method removes the last item in the array
+
+const newItemTracker = ['item 0', 'item 1', 'item 2'];
+
+const removed = newItemTracker.pop();
+
+console.log(newItemTracker); 
+// Output: [ 'item 0', 'item 1' ]
+console.log(removed);
+// Output: item 2
+//2nd example
+const chores = ['wash dishes', 'do laundry', 'take out trash', 'cook dinner', 'mop floor'];
+
+chores.pop();
+console.log(chores);
+
+//remove 1st item on list .shift()
+const groceryList = ['orange juice', 'bananas', 'coffee beans', 'brown rice', 'pasta', 'coconut oil', 'plantains'];
+
+groceryList.shift();
+console.log(groceryList);
+//console.log(groceryList);
+
+groceryList.unshift('popcorn');
+console.log(groceryList);
+
+console.log(groceryList.slice(1, 4));
+
+//nested array
+
+const nestedArr = [[1], [2, 3]];
+
+console.log(nestedArr[1]); // Output: [2, 3]
+console.log(nestedArr[1][0]); // Output: 2
+//[1] is [2, 3] followed by [0] = the 1st element frm tht array
+
 
 
